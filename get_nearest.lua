@@ -15,7 +15,6 @@ function M.get_nearest(pos)
 
   -- Returns of table empty
 	if #M.object == 0 then return end
-
 	for _, object in pairs(M.object) do
 		local target_position = go.get_position(target_id)
 		local distance = vmath.length(target_position - unit_pos)
@@ -28,7 +27,6 @@ function M.get_nearest(pos)
 			nearest_distance = distance
 		end
 	end
-
 	return nearest_object
 end
 
