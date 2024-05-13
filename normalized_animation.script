@@ -3,6 +3,7 @@ local nearest = require "nearest.lua"
 go.property("speed", 100)
 go.property("pos", vmath.vector3())
 
+-- normalized speed
 local function move(self, dt)
 	local nearest = nearest.get_nearest(self.pos)
 	local nearest_pos = go.get_position(nearest.id)
