@@ -1,0 +1,17 @@
+go.property("speed", 100)
+go.property("pos", vmath.vector3())
+
+local function move(self, dt)
+	local nearest = object.get_nearest(self.pos)
+	local nearest_pos = go.get_position(nearest.id)
+	local distance = vmath.length(nearest_pos - self.pos)
+	local duration = distance / self.speed
+
+	go.animate(".", "position", go.PLAYBACK_ONCE_FORWARD, nearest_pos, go.EASING_LINEAR, duration)
+end
+
+function init(self)
+	timer.delay(1, false, function()
+		move(self)
+	end)
+end
