@@ -8,6 +8,7 @@ function M.add_object(id)
 	table.insert(M.object, {id = id})
 end
 
+-- Removes from table, call on final()
 function M.remove_object(id)
 	for i = #M.object, 1, -1 do
 		if M.object[i].id == id then
