@@ -16,7 +16,7 @@ function M.get_nearest(pos)
 	if #M.object == 0 then return end
 	
 	for _, object in pairs(M.object) do
-		local object_position = go.get_position(object)
+		local object_position = go.get_position(object.id)
 		local distance = vmath.length(object_position - pos)
 	
 		if nearest_object == nil or distance < nearest_distance then
