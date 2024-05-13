@@ -12,21 +12,19 @@ end
 function M.get_nearest(pos)
 	local nearest_object = nil
 	local nearest_distance = math.huge
-
-  -- Returns of table empty
+	
 	if #M.object == 0 then return end
+	
 	for _, object in pairs(M.object) do
-		local target_position = go.get_position(target_id)
-		local distance = vmath.length(target_position - unit_pos)
-		
-		local dx = object.x - pos.x
-		local dy = object.y - pos.y
-
-		if nearest_target_id == nil or distance < nearest_distance then
-			nearest_target_id = target_id
+		local object_position = go.get_position(object)
+		local distance = vmath.length(object_position - pos)
+	
+		if nearest_object == nil or distance < nearest_distance then
+			nearest_object = object
 			nearest_distance = distance
 		end
 	end
+	
 	return nearest_object
 end
 
