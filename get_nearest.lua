@@ -8,6 +8,14 @@ function M.add_object(id)
 	table.insert(M.object, {id = id})
 end
 
+function M.remove_object(id)
+	for i = #M.object, 1, -1 do
+		if M.object[i].id == id then
+			table.remove(M.object, i)
+		end
+	end
+end
+
 function M.get_nearest(pos)
 	local nearest_object = nil
 	local nearest_distance = math.huge
