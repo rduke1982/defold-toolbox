@@ -1,4 +1,4 @@
--- Gets the nearest object.
+-- Gets the nearest object
 local M = {}
 
 M.object = {}
