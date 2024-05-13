@@ -5,8 +5,7 @@ M.object = {}
 
 -- Adds object to the table on init()
 function M.add_object(id)
-	local pos = go.get_position(id)
-	table.insert(M.object, {id = id, x = pos.x, y = pos.y})
+	table.insert(M.object, {id = id})
 end
 
 function M.get_nearest(pos)
