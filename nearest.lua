@@ -1,39 +1,36 @@
--- Gets the nearest object
 local M = {}
 
-M.object = {}
+M.enemies = {}
 
--- Adds object to the table on init()
-function M.add_object(id)
-	table.insert(M.object, id)
+function M.add_enemy(id)
+	table.insert(M.enemies, id)
 end
 
--- Removes from table, call on final()
-function M.remove_object(id)
-	for i = #M.object, 1, -1 do
-		if M.object[i] == id then
-			table.remove(M.object, i)
+function M.remove_enemy(id)
+	for i = #M.enemies, 1, -1 do
+		if M.enemies[i] == id then
+			table.remove(M.enemies, i)
 		end
 	end
 end
 
-function M.get_nearest(pos)
-	local nearest_object = nil
-	local nearest_distance = math.huge
-	
-	if #M.object == 0 then return end
-	
-	for _, object in pairs(M.object) do
-		local object_position = go.get_position(object)
-		local distance = vmath.length(object_position - pos)
-	
-		if nearest_object == nil or distance < nearest_distance then
-			nearest_object = object
-			nearest_distance = distance
+function M.enemy(pos)
+	local nearest_enemy = nil
+	local nearest_dist = math.huge
+
+	if #M.enemies == 0 then return end
+
+	for _, enemy in pairs(M.enemies) do
+		local enemy_pos = go.get_position(enemy)
+		local dist = vmath.length(enemy_pos - pos)
+
+		if nearest_enemy == nil or dist < nearest_dist then
+			nearest_enemy = enemy
+			nearest_dist = dist
 		end
 	end
-	
-	return nearest_object
+
+	return nearest_enemy
 end
 
 return M
