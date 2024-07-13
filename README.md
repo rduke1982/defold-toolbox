@@ -4,3 +4,4 @@ My personal collection of useful functions, tools, and resources for Defold deve
 - nearest.lua - returns nearest object (e.g., item, enemy, gem, etc.)
 - normalized_animation.script - normalized animated movement to pos
 - gold.lua - track resources (gold, wood, etc.)
+- bar_node_scaling - scale gui bar nodes based on current/max values
