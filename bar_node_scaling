@@ -1,0 +1,15 @@
+-- Good for when you want to scale hp/xp/etc bars based on current/max values
+
+local function update_hp()
+	local hp_percentage = health.current / health.max -- assuming a module is used to track health
+
+	local max_x_value = 500 -- set to x value of your bar node
+	local new_x_value = max_x_value * hp_percentage
+
+	local node = gui.get_node("hp_bar")
+	local size = gui.get_size(node)
+	size.x = new_x_value
+
+	gui.set_size(node, size)
+	gui.set_text(gui.get_node("hp"), health.current .. "/" .. health.max) -- if you want to also display text
+end
